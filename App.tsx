@@ -1,9 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import Navbar from './components/navbar';
-import Inputs from './components/inputs';
+import Login from './components/login';
+import Signup from './components/signup';
 import { NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Verify from './components/verify';
+import Forgot from './components/forgot';
+import Reset from './components/reset';
 const stack= createStackNavigator();
 export default function App() {
   // return (
@@ -17,10 +21,16 @@ export default function App() {
   //     <StatusBar style="auto" /> */}
   //   </View>
   // );
+ 
   return(
     <NavigationContainer>
       <stack.Navigator>
-        <stack.Screen name="Login" component={Inputs}></stack.Screen>
+      <stack.Screen name="Signup" component={Signup}></stack.Screen>
+      <stack.Screen name="Login" component={Login}></stack.Screen>
+        <stack.Screen name="Reset" component={Reset}></stack.Screen>
+        <stack.Screen name="Forgot" component={Forgot}></stack.Screen>
+        <stack.Screen name="Verify" component={Verify}></stack.Screen>
+        
       </stack.Navigator>
     </NavigationContainer>
   )
@@ -33,7 +43,6 @@ const styles = StyleSheet.create({
     gap: 50,
   },
   imageContainer: {
-
     alignItems: 'center',
   },
 

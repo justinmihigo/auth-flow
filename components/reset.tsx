@@ -1,41 +1,27 @@
 import React from "react";
 import { View, Text, TextInput, StyleSheet, Pressable } from "react-native"
 import { useFonts, Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faGoogle, faFacebook, faApple } from '@fortawesome/free-brands-svg-icons';
-import { } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 
-library.add(faGoogle, faFacebook, faApple);
-const Inputs: React.FC = () => {
+const Reset: React.FC = () => {
     const [fontsLoad] = useFonts({
         Poppins_400Regular, Poppins_700Bold
     })
     if (!fontsLoad) return null;
     return (
         <View style={styles.cont}>
-            <Text style={[styles.container]} >Login</Text>
-            <TextInput placeholder="Enter your email or username" placeholderTextColor={'#941ECA'} style={styles.inputs}></TextInput>
-            <TextInput placeholder="Enter your passwor" placeholderTextColor={'#941ECA'} style={styles.inputs}></TextInput>
-            <Pressable style={styles.button}>
-                <Text style={styles.textColor}>Login</Text>
-            </Pressable>
-            <Text style={{fontFamily:'Poppins_400Regular', color:'#621486'}}>Forgot Password ?</Text>
-            <Text style={{borderBottomWidth:0.3, borderColor: 'black', width:'80%'}}></Text>
-            <View style={styles.viewIcons}>
-                <Text style={styles.box}>
-                <FontAwesomeIcon icon={faGoogle} size={30} color="red"/>
-                </Text>
-                <Text style={styles.box}>
-                <FontAwesomeIcon icon={faFacebook} color='blue' size={30}/>
-                </Text>
-                <Text style={styles.box}>
-                    <FontAwesomeIcon icon={faApple} size={30}/>
-                </Text>
-                
-                
+            <Text style={[styles.container]} >Reset Password</Text>
+            <TextInput 
+            placeholder="New password" placeholderTextColor={'#941ECA'} style={styles.inputs} selectionColor={'black'}></TextInput>
+            <View>
+                <Text style={styles.validate}>The password must have at least 8 characters</Text>
+                <Text style={styles.validate}>The password should contain a number</Text>
+                <Text style={styles.validate}>The password should contain a special character</Text>
             </View>
+            <TextInput placeholder="Confirm password" placeholderTextColor={'#941ECA'} style={styles.inputs} selectionColor={'black'}></TextInput>
+            <Pressable style={styles.button}>
+                <Text style={styles.textColor}>Submit</Text>
+            </Pressable>
         </View>
     )
 }
@@ -43,6 +29,12 @@ const Inputs: React.FC = () => {
 const styles = StyleSheet.create({
     text:{
         fontFamily:'Poppins_400Regular',
+    },
+    validate:{
+        color: 'green',
+        fontSize: 12,
+        margin: 10,
+        fontFamily: 'Poppins_400Regular',
     },
     container: {
         textAlign: "center",
@@ -54,7 +46,7 @@ const styles = StyleSheet.create({
     },
     inputs: {
         width: '90%',
-        height: 50,
+        height: 60,
         borderWidth: 1,
         borderColor: '#941ECA',
         borderRadius: 10,
@@ -68,12 +60,12 @@ const styles = StyleSheet.create({
         color: 'white',
         textAlign: 'center',
         fontSize: 15,
+        margin: 10,
         fontFamily: 'Poppins_700Bold',
     },
     button: {
         width: '90%',
-        height: 50,
-        borderWidth: 1,
+        height: 60,  
         backgroundColor: '#941ECA',
         borderRadius: 10,
         padding: 10,
@@ -104,4 +96,4 @@ const styles = StyleSheet.create({
         backgroundColor:'beige',
     }
 })
-export default Inputs;
+export default Reset;
