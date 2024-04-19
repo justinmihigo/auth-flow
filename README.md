@@ -1,7 +1,3 @@
-To use the Expo router (Expo Navigation), you can modify the README accordingly. Here's an updated version of the README file using Expo Navigation:
-
----
-
 # React Native App with Expo Navigation
 
 This is a basic React Native app template that demonstrates navigation using Expo Navigation (formerly known as React Navigation in Expo). The app includes two screens: Signup and Login.
